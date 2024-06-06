@@ -1,3 +1,4 @@
 *.mid
 /venv/
 .coverage
+__pycache__

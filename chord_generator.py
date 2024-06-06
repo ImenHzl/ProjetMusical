@@ -252,6 +252,7 @@ def calculate_interval(note1, note2):
 # Function to evaluate the stability of the transition between two chords
 def evaluate_stability(chord1, chord2):
     root1 = chords[chord1][0]
+    print(f"imen{root1}")
     root2 = chords[chord2][0]
     interval = calculate_interval(root1, root2)
     
@@ -278,4 +279,7 @@ def generate_chord_progression(start_chord='Cmaj', length=4):
 # Example usage
 chord_progression =['Abm7', 'Dbm7', 'Ebm7', 'Cbmaj7', 'Bdim7', 'Fbmaj7', 'Gb7', 'Abm7']
 create_chord_progression_midi(chord_progression, 'chord_progression.mid', bpm=153)
+root1='Dbm7'
+root2='Ebm7'
+evaluate_stability(root1,root2)
 

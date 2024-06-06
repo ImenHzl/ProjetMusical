@@ -1,5 +1,5 @@
 import pytest
-from ..chord_generator import pick_random_chord
+from ..chord_generator import pick_random_chord,calculate_interval
 
 chords = {
     # Accords mineurs
@@ -172,3 +172,21 @@ chords = {
 def test_pick_random_chord():
     chord=pick_random_chord()
     assert chord in chords
+
+def test_pick_random_not_in_chord():
+    not_chord='Cmin42'
+    assert not_chord not in chords
+
+@pytest.fixture
+def my_root1():
+    root1=chords['Cmin'][0]
+    return root1
+
+@pytest.fixture
+def my_root2():
+    root2=chords['Emin'][0]
+    return root2
+
+def test_calculate_interval(my_root1,my_root2):
+    interval=calculate_interval(my_root1,my_root2)
+    assert interval== 4
